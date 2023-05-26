@@ -7,17 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="喜马拉雅音频转换"
     Width="800"
-    Height="450"
+    Height="600"
     FontSize="14"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <ContextMenu x:Key="DownloadFileContextMenu">
-            <MenuItem Click="MenuItem_Click" Header="下载当前" />
-            <MenuItem Header="下载全部" />
+            <MenuItem Click="MenuItem_Click" Header="下载原始m4a" />
+            <MenuItem Click="MenuItem_Click_1" Header="下载mp3" />
+            <MenuItem Click="MenuItem_Click_2" Header="下载原始全部" />
+            <MenuItem Click="MenuItem_Click_3" Header="下载mp3全部" />
         </ContextMenu>
     </Window.Resources>
-    <Grid>
-        <StackPanel Margin="20">
+    <Grid Margin="20">
+        <!--<TabControl>
+            <TabItem Header="下载">-->
+        <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock>声音ID</TextBlock>
                 <TextBox
@@ -72,6 +77,60 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <StackPanel
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Text="总数量:" />
+                <TextBlock
+                    x:Name="total"
+                    Margin="0,0,20,0"
+                    VerticalAlignment="Center"
+                    Text="0" />
+                <Button
+                    x:Name="lastPage"
+                    Width="100"
+                    Click="lastPage_Click">
+                    上一页
+                </Button>
+                <Button
+                    x:Name="nextPage"
+                    Width="100"
+                    Margin="20,0,0,0"
+                    Click="nextPage_Click">
+                    下一页
+                </Button>
+                <TextBlock
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="当前页:" />
+                <TextBlock
+                    x:Name="page"
+                    VerticalAlignment="Center"
+                    Text="1" />
+                <TextBlock
+                    Margin="20,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="总页数:" />
+                <TextBlock
+                    x:Name="pageCount"
+                    VerticalAlignment="Center"
+                    Text="1" />
+            </StackPanel>
         </StackPanel>
+        <!--</TabItem>-->
+        <!--<TabItem Header="下载历史">
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridView.Columns>
+                                <GridViewColumn Header="文件名称" />
+                                <GridViewColumn Header="下载状态" />
+                            </GridView.Columns>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>-->
+        <!--</TabControl>-->
     </Grid>
 </Window>
